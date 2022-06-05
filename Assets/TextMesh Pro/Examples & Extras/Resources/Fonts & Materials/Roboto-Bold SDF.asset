@@ -464,14 +464,6 @@ MonoBehaviour:
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 1
-<<<<<<< HEAD
-  m_UsedGlyphRects: []
-  m_FreeGlyphRects:
-  - m_X: 0
-    m_Y: 0
-    m_Width: 1023
-    m_Height: 1023
-=======
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
@@ -606,7 +598,6 @@ MonoBehaviour:
     m_Y: 138
     m_Width: 178
     m_Height: 885
->>>>>>> 85fa251c9db09da90b55fa6d71baadb066215f4c
   m_fontInfo:
     Name: Roboto
     PointSize: 146
