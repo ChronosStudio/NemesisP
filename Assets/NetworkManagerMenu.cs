@@ -34,7 +34,7 @@ public class NetworkManagerMenu : NetworkBehaviour
         }
         else
         {
-            manager.StopServer();
+            manager.StopHost();
         }
     }
 
