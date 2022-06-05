@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-[RequireComponent(typeof(NetworkManager))]
 public class NetworkGUI : NetworkBehaviour
 {
     NetworkManager manager;
@@ -25,7 +24,7 @@ public class NetworkGUI : NetworkBehaviour
     {
         manager.StartClient();
         manager.networkAddress = inputField.text;
-        if(NetworkClient.isConnected)
+        if (NetworkClient.isConnected)
         {
             MainMenu.gameObject.SetActive(false);
         }
@@ -43,15 +42,19 @@ public class NetworkGUI : NetworkBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
-        if (NetworkClient.isConnected && MainMenu.gameObject.active)
+        if (NetworkClient.isConnected && MainMenu.gameObject.activeSelf)
         {
+            print("true");
             MainMenu.gameObject.SetActive(false);
         }
-        if (!NetworkClient.isConnected && !MainMenu.gameObject.active)
+        if (!NetworkClient.isConnected && !MainMenu.gameObject.activeSelf)
         {
+            print("dfalse");
             MainMenu.gameObject.SetActive(true);
         }
     }
+
+
 }
