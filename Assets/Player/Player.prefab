@@ -1880,7 +1880,6 @@ MonoBehaviour:
   double_click_time: 0.2
   cam: {fileID: 2051885831}
   cameraRotationLimit: 85
-  menuPause: {fileID: 0}
 --- !u!136 &81188143809048078
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -65,20 +65,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if ( inputManager.Player.Pause.triggered)
-        {
-            print("pause triggered");
-            if (PauseMenu.isOn)
-            {
-                print("false");
-                PauseMenu.isOn = false;
-            }
-            else
-            {
-                print("true");
-                PauseMenu.isOn = true;
-            }
-        }
         //if(PauseMenu.isOn)
         //{
         //    if (Cursor.lockState != CursorLockMode.None)
