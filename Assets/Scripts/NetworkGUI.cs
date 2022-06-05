@@ -5,7 +5,7 @@ using UnityEngine;
 using Mirror;
 
 [RequireComponent(typeof(NetworkManager))]
-public class NetworkGUI : MonoBehaviour
+public class NetworkGUI : NetworkBehaviour
 {
     NetworkManager manager;
     [SerializeField] private TMP_InputField inputField;
@@ -33,8 +33,14 @@ public class NetworkGUI : MonoBehaviour
 
     public void StopClient()
     {
-        manager.StopClient();
-        manager.StartServer();
+        if (isClientOnly)
+        {
+            manager.StopClient();
+        }
+        else
+        {
+            manager.StopServer();
+        }
     }
 
     private void Update()

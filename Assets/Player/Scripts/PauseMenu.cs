@@ -10,22 +10,13 @@ public class PauseMenu : MonoBehaviour
     public void setPauseMenuOn()
     {
         isOn = true;
-        //pauseMenu.gameObject.SetActive(true);
-        setActiveR(pauseMenu.gameObject, true);
+        pauseMenu.gameObject.SetActive(true);
     }
 
     public void setPauseMenuOff()
     {
         isOn = false;
-        setActiveR(gameObject, false);
+        pauseMenu.gameObject.SetActive(false);
     }
 
-    private void setActiveR(GameObject obj, bool active)
-    {
-        obj.SetActive(active);
-        foreach(Transform child in obj.transform)
-        {
-            setActiveR(child.gameObject, active);
-        }
-    }
 }

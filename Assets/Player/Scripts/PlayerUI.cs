@@ -37,19 +37,19 @@ public class PlayerUI : MonoBehaviour
         //SetHealthAmount(player.GetHealthPct());
         //SetAmmoAmount(weaponManager.currentMagazineSize);
 
-        if (inputManager.Player.Jump.triggered)
+        if (inputManager.Player.Pause.triggered)
         {
             print("triggered");
             TogglePauseMenu();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            scoreboard.SetActive(true);
-        }else if(Input.GetKeyUp(KeyCode.Tab))
-        {
-            scoreboard.SetActive(false);
-        }
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    scoreboard.SetActive(true);
+        //}else if(Input.GetKeyUp(KeyCode.Tab))
+        //{
+        //    scoreboard.SetActive(false);
+        //}
     }
 
     public void TogglePauseMenu()
@@ -73,4 +73,17 @@ public class PlayerUI : MonoBehaviour
     {
         ammoText.text = _amount.ToString();
     }
+    private void Awake()
+    {
+        inputManager = new InputManager();
+    }
+    private void OnEnable()
+    {
+        inputManager.Player.Enable();
+    }
+    private void OnDisable()
+    {
+        inputManager.Player.Disable();
+    }
+
 }
