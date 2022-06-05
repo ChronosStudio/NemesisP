@@ -42,8 +42,9 @@ public class PlayerUI : MonoBehaviour
         //SetHealthAmount(player.GetHealthPct());
         //SetAmmoAmount(weaponManager.currentMagazineSize);
 
-        if (inputManager.Player.Pause.triggered)
+        if (inputManager.Player.Jump.triggered)
         {
+            print("triggered");
             TogglePauseMenu();
         }
 
