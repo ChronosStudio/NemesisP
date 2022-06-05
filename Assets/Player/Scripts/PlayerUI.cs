@@ -3,26 +3,21 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
-    [SerializeField]
-    private RectTransform thrusterFuellFill;
+    [SerializeField] private RectTransform thrusterFuellFill;
+    [SerializeField] private InputManager inputManager;
 
-    [SerializeField]
-    private RectTransform healthbarFill;
+    [SerializeField] private RectTransform healthbarFill;
 
     private Player player;
     private PlayerController controller;
     //private WeaponManager weaponManager;
 
-    [SerializeField]
-    private Text ammoText;
+    [SerializeField] private Text ammoText;
 
-    [SerializeField]
-    private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
 
-    [SerializeField]
-    private GameObject scoreboard;
+    [SerializeField] private GameObject scoreboard;
 
-    private InputManager inputManager;
 
     public void SetPlayer(Player _player)
     {

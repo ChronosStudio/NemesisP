@@ -1877,7 +1877,7 @@ MonoBehaviour:
   thrusterForce: 6
   thrusterFuelBurnSpeed: 0.5
   thrusterFuelRegenSpeed: 1
-  double_click_time: 0.2
+  double_click_time: 0.5
   cam: {fileID: 2051885831}
   cameraRotationLimit: 85
 --- !u!136 &81188143809048078
