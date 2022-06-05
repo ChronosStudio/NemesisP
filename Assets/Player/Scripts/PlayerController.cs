@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
@@ -37,7 +38,6 @@ public class PlayerController : MonoBehaviour
     private float currentCameraRotationX = 0f;
     [SerializeField] private float cameraRotationLimit = 85f;
     private Rigidbody rb;
-  
 
     private InputManager inputManager;
 
@@ -52,6 +52,33 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         IsGrounded();
+        if (PauseMenu.isOn)
+        {
+            
+            if (Cursor.lockState != CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+
+                Move(Vector3.zero, Vector3.zero);
+                Rotate(Vector3.zero, 0);
+            return;
+        }
+
+        if ( inputManager.Player.Pause.triggered)
+        {
+            print("pause triggered");
+            if (PauseMenu.isOn)
+            {
+                print("false");
+                PauseMenu.isOn = false;
+            }
+            else
+            {
+                print("true");
+                PauseMenu.isOn = true;
+            }
+        }
         //if(PauseMenu.isOn)
         //{
         //    if (Cursor.lockState != CursorLockMode.None)
@@ -100,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
         Move(velocity, thrusterVelocity);
 
-        print("thrusterFuelAmount: "+thrusterFuelAmount*100+"%");
+        // print("thrusterFuelAmount: "+thrusterFuelAmount*100+"%");
 
         // On calcule la rotation Y du joueur en un Vector3
         float yRot = inputManager.Player.Rotation.ReadValue<Vector2>().x/20;

@@ -25,7 +25,6 @@ public class PlayerSetup : NetworkBehaviour
         {
             int LocalPlayerLayer = LayerMask.NameToLayer("LocalPlayer");
             SetLayerR(gameObject, LocalPlayerLayer);
-            print(gameObject.layer);
             sceneCamera = Camera.main;
             if (sceneCamera != null)
             {

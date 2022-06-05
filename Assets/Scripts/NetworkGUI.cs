@@ -31,6 +31,12 @@ public class NetworkGUI : MonoBehaviour
         }
     }
 
+    public void StopClient()
+    {
+        manager.StopClient();
+        manager.StartServer();
+    }
+
     private void Update()
     {
         if (NetworkClient.isConnected && MainMenu.gameObject.active)
