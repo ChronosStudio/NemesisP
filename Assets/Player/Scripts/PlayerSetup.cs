@@ -40,7 +40,9 @@ public class PlayerSetup : NetworkBehaviour
         obj.layer = newLayer;
         foreach (Transform child in obj.transform)
         {
-            SetLayerR(child.gameObject, newLayer);
+            if (child.gameObject.layer != 10) {
+                SetLayerR(child.gameObject, newLayer);
+            }
         }
     }
     public override void OnStartClient()

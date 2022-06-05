@@ -29,7 +29,7 @@ public class NetworkGUI : NetworkBehaviour
             MainMenu.gameObject.SetActive(false);
         }
     }
-
+    
     public void StopClient()
     {
         if (isClientOnly)
