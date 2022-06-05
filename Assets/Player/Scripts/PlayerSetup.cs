@@ -18,10 +18,14 @@ public class PlayerSetup : NetworkBehaviour
         {
             DisableComponent();
             AssignRemoteLayer();
+            print(gameObject.layer);
             
         }
         else
         {
+            int LocalPlayerLayer = LayerMask.NameToLayer("LocalPlayer");
+            SetLayerR(gameObject, LocalPlayerLayer);
+            print(gameObject.layer);
             sceneCamera = Camera.main;
             if (sceneCamera != null)
             {
@@ -32,6 +36,14 @@ public class PlayerSetup : NetworkBehaviour
         GetComponent<Player>().Setup();
     }
 
+    public void SetLayerR(GameObject obj, int newLayer)
+    {
+        obj.layer = newLayer;
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerR(child.gameObject, newLayer);
+        }
+    }
     public override void OnStartClient()
     {
         base.OnStartClient();
