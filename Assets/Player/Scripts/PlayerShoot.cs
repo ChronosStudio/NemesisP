@@ -6,15 +6,19 @@ public class PlayerShoot : NetworkBehaviour
     public PlayerWeapons weapon;
     private InputManager inputManager;
 
-    [SerializeField]
-    public Camera cam;
+    [SerializeField] public Camera cam;
 
-    [SerializeField]
-    private LayerMask mask;
+    [SerializeField] private AudioSource audioPlayer;
+    [SerializeField] public AudioClip[] audioClip;
+    [SerializeField] public AudioClip shootSound;
+
+    [SerializeField] private LayerMask mask;
 
 
     void Start()
     {
+        audioPlayer = GetComponent<AudioSource>();
+        audioPlayer.clip = audioClip[0];
         if (cam == null)
         {
             print("Pas de camera renseigné sur le yteme de tir");
@@ -26,7 +30,14 @@ public class PlayerShoot : NetworkBehaviour
     {
         if (inputManager.Player.Fire.IsPressed())
         {
+            if (!audioPlayer.isPlaying)
+            { 
+                audioPlayer.Play(); 
+            }
             Shoot();
+        } else if (inputManager.Player.Fire.WasReleasedThisFrame())
+        {
+            audioPlayer.Stop();
         }
 
     }
@@ -34,6 +45,8 @@ public class PlayerShoot : NetworkBehaviour
     [Client]
     private void Shoot()
     {
+        
+
         RaycastHit hit;
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, weapon.range, mask))

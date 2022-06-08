@@ -8,7 +8,7 @@ public class PlayerSetup : NetworkBehaviour
     Behaviour[] componentsToDisable;
 
     [SerializeField]
-    private string remoteLayerName = "remotePlayer";
+    private string remoteLayerName = "RemotePlayer";
 
     Camera sceneCamera;
 
@@ -57,7 +57,7 @@ public class PlayerSetup : NetworkBehaviour
 
     private void AssignRemoteLayer()
     {
-        gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
+        SetLayerR(gameObject, LayerMask.NameToLayer(remoteLayerName));
     }
 
     private void DisableComponent()
